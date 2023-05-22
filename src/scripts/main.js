@@ -1,6 +1,7 @@
 import { makePottery } from './PotteryWheel.js'
 import { firePottery } from './Kiln.js'
-import { toSellOrNotToSell } from './PotteryCatalog.js'
+import { toSellOrNotToSell, usePottery } from './PotteryCatalog.js'
+import { PotteryList } from './PotteryList.js'
 // Imports go first
 
 
@@ -19,16 +20,18 @@ firePottery(bowl, 2100)
 firePottery(vase, 2100)
 firePottery(cat, 2100)
 // console.log([mug, cup, bowl, vase, cat])
+
+// Determine which ones should be sold, and their price
 toSellOrNotToSell(mug)
 toSellOrNotToSell(cup)
 toSellOrNotToSell(bowl)
 toSellOrNotToSell(vase)
 toSellOrNotToSell(cat)
-console.log([mug, cup, bowl, vase, cat])
-// Determine which ones should be sold, and their price
-
+// console.log(usePottery());
 
 // Invoke the component function that renders the HTML list
+let article = document.querySelector('.potteryList');
+article.innerHTML = PotteryList();
 
 
 
